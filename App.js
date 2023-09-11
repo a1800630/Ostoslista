@@ -11,17 +11,22 @@ export default function App() {
    case "ADD":
     setData([...data, { key: text }]);
     setText('');
-  case "Clear":
-    setText('');
-   }    
+    }   
   }
-
+  const clearList = () => {
+    setData([]);
+ } 
 
   return (
     <View style={styles.container}>
       <TextInput style={styles.input} onChangeText={text => setText(text)} value={text} />
-      <Button onPress={() => handleButtonPress("ADD")} title="ADD" />
-      <Button onPress={() => handleButtonPress("Clear")} title="Clear" />
+      <View style={styles.button}>
+        <Button onPress={() => handleButtonPress("ADD")} title="ADD" />
+      </View>
+      <View style={styles.button}>
+        <Button onPress={clearList} title="Clear" />
+      </View>
+      <Text>Shopping List</Text>
       <FlatList style={styles.list}
         data={data}
         renderItem={({ item }) =>
@@ -39,13 +44,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-evently',
   },
   input: {
-    marginTop: 50,
+    marginTop: 200,
     marginBottom: 5,
     width: 200,
     borderColor: 'gray',
     borderWidth: 1
+  },
+  button: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    margin: 10,
   }
 });
