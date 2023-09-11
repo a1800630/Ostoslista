@@ -22,8 +22,6 @@ export default function App() {
       <TextInput style={styles.input} onChangeText={text => setText(text)} value={text} />
       <View style={styles.button}>
         <Button onPress={() => handleButtonPress("ADD")} title="ADD" />
-      </View>
-      <View style={styles.button}>
         <Button onPress={clearList} title="Clear" />
       </View>
       <Text>Shopping List</Text>
@@ -56,8 +54,8 @@ const styles = StyleSheet.create({
   button: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-around',
     alignItems: 'center',
+    justifyContent: 'space-around',
     margin: 10,
   }
 });
